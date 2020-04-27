@@ -6,7 +6,7 @@ import { SET_CURRENT_USER } from "../actions/types";
 
 export const register = (user, history) => async (dispatch) => {
     try {
-        const res = await axios.post("http://127.0.0.1:8000/api/users", user)
+        const res = await axios.post("http://127.0.0.1:8001/api/user", user)
         console.log(res);
         history.push("/dashboard");
     } catch (err) {
@@ -20,7 +20,7 @@ export const register = (user, history) => async (dispatch) => {
 
 export const login = (LoginRequest) => async (dispatch) => {
     try {
-        const res = await axios.post("http://127.0.0.1:8000/api/user/login", LoginRequest);
+        const res = await axios.post("http://127.0.0.1:8001/api/user", LoginRequest);
         // Extraction du token
         const { token } = res.data;
         // Stockage du token en localStorage
